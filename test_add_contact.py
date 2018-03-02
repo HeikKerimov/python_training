@@ -2,6 +2,9 @@
 from selenium.webdriver.firefox.webdriver import WebDriver
 import unittest
 
+from contact import Contact
+
+
 def is_alert_present(wd):
     try:
         wd.switch_to_alert().text
@@ -19,22 +22,22 @@ class test_add_new_contact(unittest.TestCase):
         self.open_home_page(wd)
         self.login(wd, username="admin", password="secret")
         self.open_add_new_contact_page(wd)
-        self.create_contact(wd, firstname="Heik", lastname="Kerimov", phone="9214410883")
+        self.create_contact(wd, Contact(firstname="Heik", lastname="Kerimov", phone="9214410883"))
         self.logout(wd)
 
     def logout(self, wd):
         wd.find_element_by_link_text("Logout").click()
 
-    def create_contact(self, wd, firstname, lastname, phone):
+    def create_contact(self, wd, contact):
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
-        wd.find_element_by_name("firstname").send_keys(firstname)
+        wd.find_element_by_name("firstname").send_keys(contact.firstname)
         wd.find_element_by_name("lastname").click()
         wd.find_element_by_name("lastname").clear()
-        wd.find_element_by_name("lastname").send_keys(lastname)
+        wd.find_element_by_name("lastname").send_keys(contact.lastname)
         wd.find_element_by_name("home").click()
         wd.find_element_by_name("home").clear()
-        wd.find_element_by_name("home").send_keys(phone)
+        wd.find_element_by_name("home").send_keys(contact.phone)
         wd.find_element_by_name("submit").click()
 
     def open_add_new_contact_page(self, wd):
