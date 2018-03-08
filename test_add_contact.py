@@ -1,16 +1,7 @@
 # -*- coding: utf-8 -*-
 from selenium.webdriver.firefox.webdriver import WebDriver
 import unittest
-
 from contact import Contact
-
-
-def is_alert_present(wd):
-    try:
-        wd.switch_to_alert().text
-        return True
-    except:
-        return False
 
 class test_add_new_contact(unittest.TestCase):
     def setUp(self):
@@ -19,9 +10,7 @@ class test_add_new_contact(unittest.TestCase):
     
     def test_test_add_new_contact(self):
         wd = self.wd
-        self.open_home_page(wd)
         self.login(wd, username="admin", password="secret")
-        self.open_add_new_contact_page(wd)
         self.create_contact(wd, Contact(firstname="Heik", lastname="Kerimov", phone="9214410883"))
         self.logout(wd)
 
@@ -29,6 +18,7 @@ class test_add_new_contact(unittest.TestCase):
         wd.find_element_by_link_text("Logout").click()
 
     def create_contact(self, wd, contact):
+        self.open_add_new_contact_page(wd)
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
         wd.find_element_by_name("firstname").send_keys(contact.firstname)
@@ -44,6 +34,7 @@ class test_add_new_contact(unittest.TestCase):
         wd.find_element_by_link_text("add new").click()
 
     def login(self, wd, username, password):
+        self.open_home_page(wd)
         wd.find_element_by_name("user").click()
         wd.find_element_by_name("user").clear()
         wd.find_element_by_name("user").send_keys(username)
