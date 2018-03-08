@@ -1,7 +1,7 @@
 from selenium.webdriver.firefox.webdriver import WebDriver
 
 
-class Group_Application:
+class GroupApplication:
 
     def __init__(self):
         self.wd = WebDriver(capabilities={"marionette": False})
