@@ -9,16 +9,17 @@ class test_add_new_contact(unittest.TestCase):
         self.wd.implicitly_wait(60)
     
     def test_test_add_new_contact(self):
-        wd = self.wd
-        self.login(wd, username="admin", password="secret")
-        self.create_contact(wd, Contact(firstname="Heik", lastname="Kerimov", phone="9214410883"))
-        self.logout(wd)
+        self.login(username="admin", password="secret")
+        self.create_contact(Contact(firstname="Heik", lastname="Kerimov", phone="9214410883"))
+        self.logout()
 
-    def logout(self, wd):
+    def logout(self):
+        wd = self.wd
         wd.find_element_by_link_text("Logout").click()
 
-    def create_contact(self, wd, contact):
-        self.open_add_new_contact_page(wd)
+    def create_contact(self, contact):
+        wd = self.wd
+        self.open_add_new_contact_page()
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
         wd.find_element_by_name("firstname").send_keys(contact.firstname)
@@ -30,11 +31,13 @@ class test_add_new_contact(unittest.TestCase):
         wd.find_element_by_name("home").send_keys(contact.phone)
         wd.find_element_by_name("submit").click()
 
-    def open_add_new_contact_page(self, wd):
+    def open_add_new_contact_page(self):
+        wd = self.wd
         wd.find_element_by_link_text("add new").click()
 
-    def login(self, wd, username, password):
-        self.open_home_page(wd)
+    def login(self, username, password):
+        wd = self.wd
+        self.open_home_page()
         wd.find_element_by_name("user").click()
         wd.find_element_by_name("user").clear()
         wd.find_element_by_name("user").send_keys(username)
@@ -43,7 +46,8 @@ class test_add_new_contact(unittest.TestCase):
         wd.find_element_by_name("pass").send_keys(password)
         wd.find_element_by_xpath("//form[@id='LoginForm']/input[3]").click()
 
-    def open_home_page(self, wd):
+    def open_home_page(self):
+        wd = self.wd
         wd.get("http://localhost/addressbook/")
 
     def tearDown(self):
