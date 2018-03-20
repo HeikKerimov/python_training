@@ -1,5 +1,3 @@
-from selenium import webdriver
-
 
 class GroupHelper:
 
