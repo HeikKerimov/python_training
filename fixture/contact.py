@@ -20,8 +20,7 @@ class ContactHelper:
     def edit_contact_by_index(self, index, contact):
         wd = self.app.wd
         self.app.open_home_page()
-        self.select_contact_by_index(index)
-        wd.find_element_by_xpath("//img[@alt='Edit']").click()
+        self.select_contact_to_edit_by_index(index)
         self.fill_contact_form(contact)
         wd.find_element_by_name("update").click()
         self.return_to_home_page()
@@ -61,6 +60,10 @@ class ContactHelper:
         wd = self.app.wd
         wd.find_elements_by_name("selected[]")[index].click()
 
+    def select_contact_to_edit_by_index(self, index):
+        wd = self.app.wd
+        wd.find_elements_by_xpath("(//img[@alt='Edit'])")[index].click()
+
     def open_add_new_contact_page(self):
         wd = self.app.wd
         if not (wd.current_url.endswith("/edit.php") and len(wd.find_elements_by_name("theform")) > 0):
@@ -82,8 +85,8 @@ class ContactHelper:
             self.app.open_home_page()
             self.contact_cache = []
             for element in wd.find_elements_by_xpath("//tr[@name='entry']"):
-                first_name = element.find_element_by_xpath("//tr[@name='entry']/td[3]").text
-                last_name = element.find_element_by_xpath("//tr[@name='entry']/td[2]").text
+                first_name = element.find_element_by_xpath("td[3]").text
+                last_name = element.find_element_by_xpath("td[2]").text
                 id = element.find_element_by_name("selected[]").get_attribute("value")
                 self.contact_cache.append(Contact(id=id, first_name=first_name, last_name=last_name))
         return list(self.contact_cache)
