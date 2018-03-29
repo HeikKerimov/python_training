@@ -50,7 +50,7 @@ class ContactHelper:
         wd.find_element_by_name("lastname").send_keys(contact.last_name)
         wd.find_element_by_name("home").click()
         wd.find_element_by_name("home").clear()
-        wd.find_element_by_name("home").send_keys(contact.phone)
+        wd.find_element_by_name("home").send_keys(contact.home_phone)
 
     def select_first_contact(self):
         wd = self.app.wd
