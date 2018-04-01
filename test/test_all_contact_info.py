@@ -26,4 +26,4 @@ def merge_emails_like_on_home_page(contact):
     return "\n".join(filter(lambda x: x != "",
                             map(lambda x: clear(x),
                                 filter(lambda x: x is not None,
-                                       [contact.email_1, contact.email_2]))))
+                                       [contact.email_1, contact.email_2, contact.email_3]))))

@@ -17,7 +17,8 @@ def random_digits(prefix, max_len):
 test_data = [Contact(first_name=random_string("first", 5), last_name=random_string("last", 5),
                      home_phone=random_digits("8928", 7), work_phone=random_digits("8928", 7),
                       mobile_phone=random_digits("8928", 7), secondary_phone=random_digits("8928", 7),
-                      address=random_string("address", 10), email_1=random_string("email_1", 4), email_2=random_string("email_2", 4))
+                      address=random_string("address", 10), email_1=random_string("email_1", 4), email_2=random_string("email_2", 4),
+                     email_3=random_string("email_3", 4))
              for i in range(2)]
 
 
