@@ -2,7 +2,8 @@
 from model.group import Group
 
 
-def test_add_group(app, group):
+def test_add_group(app, data_groups):
+    group = data_groups
     old_groups = app.group.get_group_list()
     app.group.create(group)
     new_groups = app.group.get_group_list()
