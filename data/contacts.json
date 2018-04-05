@@ -1,0 +1,34 @@
+[
+  {
+    "py/object": "model.contact.Contact",
+    "address": "addressvEuNr",
+    "all_emails_from_home_page": null,
+    "all_phones_from_home_page": null,
+    "email_1": "email_1jtz",
+    "email_2": "email_2hG",
+    "email_3": "email_3q",
+    "first_name": "firstivQN",
+    "home_phone": "8928749",
+    "id": null,
+    "last_name": "lastx",
+    "mobile_phone": "8928212",
+    "secondary_phone": "89287113",
+    "work_phone": "892810751"
+  },
+  {
+    "py/object": "model.contact.Contact",
+    "address": "address",
+    "all_emails_from_home_page": null,
+    "all_phones_from_home_page": null,
+    "email_1": "email_1",
+    "email_2": "email_2ZXm",
+    "email_3": "email_3Syf",
+    "first_name": "firstk",
+    "home_phone": "8928961",
+    "id": null,
+    "last_name": "lastBpEn",
+    "mobile_phone": "8928967",
+    "secondary_phone": "892844",
+    "work_phone": "8928346"
+  }
+]

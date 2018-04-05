@@ -1,0 +1,30 @@
+[
+  {
+    "py/object": "model.group.Group",
+    "footer": "",
+    "header": "",
+    "id": null,
+    "name": ""
+  },
+  {
+    "py/object": "model.group.Group",
+    "footer": "footery",
+    "header": "headerBvjK",
+    "id": null,
+    "name": "name"
+  },
+  {
+    "py/object": "model.group.Group",
+    "footer": "footere",
+    "header": "header9",
+    "id": null,
+    "name": "namew"
+  },
+  {
+    "py/object": "model.group.Group",
+    "footer": "footerWeTB",
+    "header": "headerhGgw",
+    "id": null,
+    "name": "name"
+  }
+]
