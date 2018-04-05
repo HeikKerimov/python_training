@@ -1,5 +1,6 @@
 from sys import maxsize
 
+
 class Group:
 
     def __init__(self, id=None, name=None, header=None, footer=None):
