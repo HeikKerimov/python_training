@@ -1,4 +1,5 @@
-import datetime
+from datetime import datetime
+
 from pony.orm import *
 from pymysql.converters import encoders, decoders, convert_mysql_timestamp
 from model.group import Group
