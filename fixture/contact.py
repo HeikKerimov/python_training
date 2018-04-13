@@ -39,7 +39,7 @@ class ContactHelper:
         wd.switch_to_alert().accept()
         self.contact_cache = None
 
-    def delete_contact_by_id(self, id):
+    def delete_contact_by_id(self, id, ):
         wd = self.app.wd
         self.app.open_home_page()
         self.select_contact_by_id(id)
@@ -49,6 +49,26 @@ class ContactHelper:
 
     def delete_first_contact(self):
         self.delete_contact_by_index(0)
+
+    def add_contact_to_group_by_id(self, contact_id, group_id):
+        wd = self.app.wd
+        self.app.open_home_page()
+        self.select_contact_by_id(contact_id)
+        wd.find_element_by_name("to_group").click()
+        wd.find_element_by_xpath("//select[@name='to_group']//option[@value='%s']" % group_id).click()
+        wd.find_element_by_name("add").click()
+        wd.find_element_by_link_text('group page "name"').click()
+        self.contact_cache = None
+
+    def delete_contact_from_group_by_id(self, contact_id, group_id):
+        wd = self.app.wd
+        self.app.open_home_page()
+        wd.find_element_by_name("group").click()
+        wd.find_element_by_xpath("//select[@name='group']//option[@value='%s']" % group_id).click()
+        self.select_contact_by_id(contact_id)
+        wd.find_element_by_name("remove").click()
+        wd.find_element_by_link_text('group page "name"').click()
+        self.contact_cache = None
 
     def fill_contact_form(self, contact):
         wd = self.app.wd

@@ -38,7 +38,7 @@ class ORMFixture:
         email_1 = Optional(str, column="email")
         email_2 = Optional(str, column="email2")
         email_3 = Optional(str, column="email3")
-        deprecated = Optional(datetime, column="deprecated")
+        deprecated = Optional(str, column="deprecated")
         groups = Set(lambda: ORMFixture.ORMGroup, table="address_in_groups", column="group_id", reverse="contacts", lazy=True)
 
     @db_session
