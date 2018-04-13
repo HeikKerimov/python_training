@@ -39,7 +39,7 @@ class ContactHelper:
         wd.switch_to_alert().accept()
         self.contact_cache = None
 
-    def delete_contact_by_id(self, id, ):
+    def delete_contact_by_id(self, id):
         wd = self.app.wd
         self.app.open_home_page()
         self.select_contact_by_id(id)
