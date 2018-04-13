@@ -30,7 +30,7 @@ class DbFixture():
         contacts = []
         cursor = self.connection.cursor()
         try:
-            cursor.execute("SELECT id, firstname, lastname, home, work, mobile, phone2, address, email, email2, email3 FROM addressbook")
+            cursor.execute("SELECT id, firstname, lastname, home, work, mobile, phone2, address, email, email2, email3 FROM addressbook where deprecated='0000-00-00 00:00:00'")
             for row in cursor:
                 (id, firstname, lastname, home, work, mobile, phone2, address, email, email2, email3) = row
                 contacts.append(Contact(id=str(id), first_name=firstname, last_name=lastname, home_phone=home, work_phone=work,
