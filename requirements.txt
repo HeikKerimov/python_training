@@ -1,0 +1,7 @@
+PyMySQL
+pytest
+pony
+pytest_bdd
+jsonpickle
+selenium
+webdriver_manager
