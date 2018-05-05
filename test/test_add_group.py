@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 import allure
-import pytest
-
 from model.group import Group
 
 
+@allure.title("Add a group")
 def test_add_group(app, db, check_ui, json_groups):
     group = json_groups
     with allure.step("Given A group list"):
